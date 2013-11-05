@@ -50,6 +50,13 @@ public class Contact {
 	public void setId(String id){
 		this.id=id;
 	}
+	@Override
+	public String toString() {
+		return "Contact [lastname=" + lastname + ", firstname=" + firstname
+				+ ", email=" + email + ", birthday=" + birthday + ", id=" + id
+				+ "]";
+	}
+	
 	
 	
 }

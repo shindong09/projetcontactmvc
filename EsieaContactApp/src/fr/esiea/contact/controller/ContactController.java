@@ -17,68 +17,42 @@ import fr.esiea.contact.service.ContactService;
 
 @Controller
 public class ContactController {
+	
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView index() {
-	   return new ModelAndView("welcome", "command", new Contact());
-	}
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("welcome");
+		modelAndView.addObject("firstname", new Contact());
+		modelAndView.addObject("lastname", new Contact());
+		modelAndView.addObject("email", new Contact());
+		modelAndView.addObject("birthday", new Contact());
+		return modelAndView; 
+	}	
 	
-	@RequestMapping(value = "/accesshome", method = RequestMethod.POST)
-	public String accessHome(@ModelAttribute("SpringWeb")Contact contact, 
-	ModelMap model) {
-	   model.addAttribute("lastname", contact.getLastname());
-	   model.addAttribute("firstname", contact.getFirstname());
-	   //model.addAttribute("contactList", service.getContacts(contact.getEmail()));
-	   return "home";
-	   }
-	
-
-	@RequestMapping(value = "/addcontact", method = RequestMethod.GET)
-	public ModelAndView contactform() {
-		   return new ModelAndView("addcontact", "command", new Contact());
-	}
-
-
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
-	public String addcontact(@ModelAttribute("SpringWeb")Contact contact, 
-	ModelMap model) {
-	   model.addAttribute("lastname", contact.getLastname());
-	   model.addAttribute("firstname", contact.getFirstname());
-	   model.addAttribute("email", contact.getEmail());
-	   model.addAttribute("birthday", contact.getBirthday());
-	   //model.addAttribute("contactList", service.getContacts(contact.getEmail()));
-	   return "home";
-	 }
-}
-
-/*
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
-	public ModelAndView student() {
-	   return new ModelAndView("welcome", "command", new Contact());
-	}
-	
-	@RequestMapping(value = "/accesshome", method = RequestMethod.POST)
 	public String accessHome(@ModelAttribute("SpringWeb")Contact contact, 
 	ModelMap model) {
 	   model.addAttribute("lastname", contact.getLastname());
 	   model.addAttribute("firstname", contact.getFirstname());
 	   //model.addAttribute("contactList", service.getContacts(contact.getEmail()));
 	   return "home";
-	}
+	}	
+
 
 	@RequestMapping(value = "/addcontact", method = RequestMethod.GET)
+	public ModelAndView student() {
+	   return new ModelAndView("addcontact", "command", new Contact());
+	}
+	
+	@RequestMapping(value = "/homecontact", method = RequestMethod.POST)
 	public String addContact(@ModelAttribute("SpringWeb")Contact contact, 
 	ModelMap model) {
 	   model.addAttribute("lastname", contact.getLastname());
 	   model.addAttribute("firstname", contact.getFirstname());
-	   model.addAttribute("email", contact.getEmail());
-	   model.addAttribute("birthday", contact.getBirthday());
-	   //model.addAttribute("contactList", service.getContacts(contact.getEmail()));
-	   return "addcontact";
+	   model.addAttribute("lastname", contact.getEmail());
+	   model.addAttribute("firstname", contact.getBirthday());
+	   return "homecontact";
 	}
 
-	private static ContactDAOImpl data = new ContactDAOImpl();
-	//service contenant toutes les méthodes utiles
-	private static ContactService service = new ContactService( data );
-
-*/
+}

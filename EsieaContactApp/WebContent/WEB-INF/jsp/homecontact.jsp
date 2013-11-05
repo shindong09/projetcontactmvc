@@ -22,14 +22,23 @@
 	</header>
 	
 	<div id="main">
-		<p> Bienvenue ${lastname} ${firstname} dans l'application de gestion de Contact</p> 
+		<p> Le contact  ${lastname} ${firstname} a bien été à la base donnée</p> 
 	
 			<div >
-				<h1>${firstName} ${lastName}</h1>
+				
 				<span ><a href="addcontact.html">Creer un contact</a></span>
 				<span ><a href="home.html">Home</a></span>
 			</div>					
-			
 	</div>
+	<table>
+   <tr>
+       <td>${lastName}</td>
+   </tr>
+   <tr>
+       <td>${firstName}</td>
+
+   </tr>
+</table>
+	
 </body>
 </html>

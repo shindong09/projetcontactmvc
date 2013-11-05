@@ -1,18 +1,27 @@
 package fr.esiea.contact.model;
 
-public class Adresse {
+public abstract class Adresse {
 
-	private String numero;
-	private String rue;
-	private String codepostal;
-	private String ville;
+	protected String numero;
+	protected String rue;
+	protected String codepostal;
+	protected String ville;
+	protected String id;
 	
-	public Adresse() {
+	public Adresse( String numero, String rue, String ville, String codepostal, String id) {
 		// TODO Auto-generated constructor stub
 		this.numero=numero;
 		this.rue=rue;
 		this.ville=ville;
 		this.codepostal=codepostal;
+		this.id=id;
+	}
+	
+	public Adresse(){
+		
+		 LivraisonAdresse livraison=new LivraisonAdresse(numero, ville, numero, id, codepostal);
+		 PaiementAdresse paiement=new PaiementAdresse(numero, ville, numero, id, codepostal);
+		
 	}
 
 	public String getNumero() {
@@ -44,6 +53,12 @@ public class Adresse {
 
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+	public void setId(String Id){
+		this.id=id;
+	}
+	public String getId(){
+		return id;
 	}
 
 }
