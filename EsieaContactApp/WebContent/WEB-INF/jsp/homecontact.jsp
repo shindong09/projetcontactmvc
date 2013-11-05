@@ -22,12 +22,12 @@
 	</header>
 	
 	<div id="main">
-		<p> Le contact  ${lastname} ${firstname} a bien été à la base donnée</p> 
+		<p> Le contact  ${lastname} ${firstname} a bien été ajouterà la base donnée</p> 
 	
 			<div >
 				
 				<span ><a href="addcontact.html">Creer un contact</a></span>
-				<span ><a href="home.html">Home</a></span>
+				<span ><a href="welcome.html">Re-Login</a></span>
 			</div>					
 	</div>
 	<table>

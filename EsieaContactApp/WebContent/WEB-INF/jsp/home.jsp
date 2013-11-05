@@ -27,7 +27,7 @@
 			<div >
 				<h1>${firstName} ${lastName}</h1>
 				<span ><a href="addcontact.html">Creer un contact</a></span>
-				<span ><a href="home.html">Home</a></span>
+				<span ><a href="welcome.html">Re-Login</a></span>
 			</div>					
 			
 	</div>
